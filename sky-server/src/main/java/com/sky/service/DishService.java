@@ -25,7 +25,6 @@ public interface DishService {
     /**
      * 菜品批量删除
      * @param ids
-     * @return
      */
     void deleteBatch(List<Long> ids);
 }
