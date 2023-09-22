@@ -6,6 +6,7 @@ import com.sky.entity.Dish;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
+import com.sky.service.impl.SetmealServicelmpl;
 import com.sky.vo.DishVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,6 +27,9 @@ public class DishControIler {
 
     @Autowired
     private DishService dishService;
+    @Autowired
+    private SetmealServicelmpl setmealServicelmpl;
+
     /**
      * 新增菜品
      * @param dishDTO
@@ -101,5 +105,18 @@ public class DishControIler {
     public Result<List<Dish>> list(Long categoryId){
         List<Dish> list = dishService.list(categoryId);
         return Result.success(list);
+    }
+
+    /**
+     * 菜品起售停售
+     * @param status
+     * @param id
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    @ApiOperation("菜品起售停售")
+    public Result startOrStop(@PathVariable Integer status, Long id) {
+        setmealServicelmpl.startOrStop(status, id);
+        return Result.success();
     }
 }

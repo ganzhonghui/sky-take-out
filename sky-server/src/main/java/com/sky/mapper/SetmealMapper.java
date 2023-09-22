@@ -3,6 +3,7 @@ package com.sky.mapper;
 import com.github.pagehelper.Page;
 import com.sky.annotation.AutoFill;
 import com.sky.dto.SetmealPageQueryDTO;
+import com.sky.entity.Category;
 import com.sky.entity.Dish;
 import com.sky.entity.Setmeal;
 import com.sky.enumeration.OperationType;
@@ -54,6 +55,9 @@ public interface SetmealMapper {
     @Delete("delete from setmeal where id = #{id}")
     void deleteById(Long setmealId);
 
-    @AutoFill(value = OperationType.UPDATE)
+    /**
+     * 根据主键动态修改属性
+     * @param setmeal
+     */
     void update(Setmeal setmeal);
 }

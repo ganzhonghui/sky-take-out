@@ -33,8 +33,8 @@
         order by s.create_time desc
     </select>
 
-    <update id="update">
-        update dish
+    <update id="update" parameterType="Setmeal">
+        update setmeal
         <set>
             <if test="name != null">name = #{name},</if>
             <if test="categoryId != null">category_id = #{categoryId},</if>
