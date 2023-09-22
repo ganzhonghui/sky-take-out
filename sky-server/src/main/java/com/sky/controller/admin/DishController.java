@@ -55,7 +55,7 @@ public class DishController {
      * @param ids
      * @return
      */
-    @PostMapping
+    @DeleteMapping
     @ApiOperation("菜品批量删除")
     public Result delete(@RequestParam List<Long> ids){
         log.info("菜品批量删除：{}", ids);
